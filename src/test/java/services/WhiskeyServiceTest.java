@@ -1,6 +1,5 @@
 package services;
 
-import models.Sneaker;
 import models.Whiskey;
 import org.junit.Assert;
 import org.junit.Before;
@@ -42,7 +41,7 @@ public class WhiskeyServiceTest {
         int actualId = testWhiskey.getId();
         String actualName = testWhiskey.getName();
         String actualBrand = testWhiskey.getBrand();
-        float actualSize = testWhiskey.getSizeInLiters();
+        float actualSize = testWhiskey.getSize();
         int actualQty = testWhiskey.getQty();
         float actualPrice = testWhiskey.getPrice();
 
@@ -80,4 +79,9 @@ public class WhiskeyServiceTest {
         Assert.assertTrue(whiskeyService.delete(testWhiskey.getId()));
     }
 
+    @Test
+    public void printWhiskey() {
+        String expected = "Name: Lightning Bolt, Brand: Lightning Bolt Cinnamon Whiskey, Size: 0.5 Liters, Qty: 10, Price: $20.00\n";
+        Assert.assertEquals(expected, whiskeyService.printWhiskey(testWhiskey));
+    }
 }

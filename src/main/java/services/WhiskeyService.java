@@ -1,6 +1,5 @@
 package services;
 
-import models.Sneaker;
 import models.Whiskey;
 
 import java.util.ArrayList;
@@ -8,14 +7,19 @@ import java.util.ArrayList;
 public class WhiskeyService{
 
     private static int nextId = 1;
+    private String name;
+    private String brand;
+    private float size;
+    private int quantity;
+    private float price;
 
     private ArrayList<Whiskey> inventory = new ArrayList<>();
 
     // method to accept arguments and return a new instance of a Sneaker object
-    public Whiskey create(String name, String brand, float sizeInLiters, int qty, float price) {
+    public Whiskey create(String name, String brand, float size, int quantity, float price) {
 
         // create a new sneaker, passing the values from above into the constructor
-        Whiskey createdWhiskey = new Whiskey(nextId++, name, brand, sizeInLiters, qty, price);
+        Whiskey createdWhiskey = new Whiskey(nextId++, name, brand, size, quantity, price);
 
         // adds the new sneaker to the ArrayList to be managed
         inventory.add(createdWhiskey);
@@ -55,6 +59,11 @@ public class WhiskeyService{
         }
         // Otherwise return false
         return false;
+    }
+
+    public String printWhiskey(Whiskey whiskey){
+        return String.format("Name: %s, Brand: %s, Size: %.1f Liters, Qty: %d, Price: $%.2f\n",
+                whiskey.getName(), whiskey.getBrand(), whiskey.getSize(), whiskey.getQty(), whiskey.getPrice());
     }
 
 }

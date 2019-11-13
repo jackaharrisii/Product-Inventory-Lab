@@ -4,8 +4,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import org.junit.jupiter.api.BeforeAll;
-
 public class WhiskeyTest {
 
     Whiskey testWhiskey;
@@ -53,13 +51,13 @@ public class WhiskeyTest {
 
     @Test
     public void getSizeInLitersTest() {
-        Assert.assertEquals(1f, testWhiskey.getSizeInLiters(), 0.001);
+        Assert.assertEquals(1f, testWhiskey.getSize(), 0.001);
     }
 
     @Test
     public void setSizeInLitersTest() {
-        otherWhiskey.setSizeInLiters(3);
-        Assert.assertEquals(3, otherWhiskey.getSizeInLiters(),0.001);
+        otherWhiskey.setSize(3);
+        Assert.assertEquals(3, otherWhiskey.getSize(),0.001);
     }
 
     @Test

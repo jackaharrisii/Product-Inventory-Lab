@@ -1,20 +1,18 @@
 package models;
 
-import jdk.internal.org.objectweb.asm.tree.IntInsnNode;
-
 public class Whiskey {
     private int id;
     private String name;
     private String brand;
-    private float sizeInLiters;
+    private float size;
     private int qty;
     private float price;
 
-    public Whiskey (int id, String name, String brand, float sizeInLiters, int qty, float price){
+    public Whiskey (int id, String name, String brand, float size, int qty, float price){
         this.id = id;
         this.name = name;
         this.brand = brand;
-        this.sizeInLiters = sizeInLiters;
+        this.size = size;
         this.qty = qty;
         this.price = price;
     }
@@ -46,12 +44,12 @@ public class Whiskey {
         this.brand = brand;
     }
 
-    public float getSizeInLiters() {
-        return sizeInLiters;
+    public float getSize() {
+        return size;
     }
 
-    public void setSizeInLiters(float sizeInLiters) {
-        this.sizeInLiters = sizeInLiters;
+    public void setSize(float size) {
+        this.size = size;
     }
 
     public int getQty() {

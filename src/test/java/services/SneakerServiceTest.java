@@ -6,81 +6,53 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
-import java.util.ArrayList;
-
 public class SneakerServiceTest {
 
-    // instantiate a SneakerService object
-    SneakerService sneakerService = new SneakerService();
-    private ArrayList<Sneaker> testInventory = new ArrayList<>();
+    // instantiate a SneakerService object and a testSneaker
+    private SneakerService sneakerService = new SneakerService();
+    private Sneaker testSneaker;
     private Sneaker[] testInventoryArray;
-    Sneaker testSneaker;
-    String expectedName;
-    String expectedBrand;
-    String expectedSport;
-    float expectedSize;
-    int expectedQty;
-    float expectedPrice;
 
     @Before
     public void setUp(){
-        // establish test data
-        expectedName = "Stan Smith";
-        expectedBrand = "Adidas";
-        expectedSport = "Tennis";
-        expectedSize = 10.5f;
-        expectedQty = 10;
-        expectedPrice = 80.00f;
-
-        // then use sneakerService to create and return a new Sneaker object
-        testSneaker = sneakerService.create(expectedName, expectedBrand,
-                expectedSport, expectedSize, expectedQty, expectedPrice);
+        // creates a new Sneaker, then adds it to inventory
+        testSneaker = sneakerService.create("Air Gordon", "Nikee",
+                "Sports", 10.5f, 10, 80.00f);
     }
 
     @Test
     public void createTest(){
-        // use accessor methods to capture data from the newly created sneaker
-        int actualId = testSneaker.getId();
-        String actualName = testSneaker.getName();
-        String actualBrand = testSneaker.getBrand();
-        String actualSport = testSneaker.getSport();
-        float actualSize = testSneaker.getSize();
-        int actualQty = testSneaker.getQty();
-        float actualPrice = testSneaker.getPrice();
-
-        // check/assert that the data passed into the SneakerService was properly assigned to the new Sneaker object returned
-        Assertions.assertEquals(Integer.class.getName(), new Integer(actualId).getClass().getName());
-        Assertions.assertEquals(expectedName, actualName);
-        Assertions.assertEquals(expectedBrand, actualBrand);
-        Assertions.assertEquals(expectedSport, actualSport);
-        Assertions.assertEquals(expectedSize, actualSize);
-        Assertions.assertEquals(expectedQty, actualQty);
-        Assertions.assertEquals(expectedPrice, actualPrice);
+        Assertions.assertEquals(1, sneakerService.getInventory().get(1).getId());
+        Assertions.assertEquals("Air Gordon", sneakerService.getInventory().get(1).getName());
+        Assertions.assertEquals("Nikee", sneakerService.getInventory().get(1).getBrand());
+        Assertions.assertEquals("Sports", sneakerService.getInventory().get(1).getSport());
+        Assertions.assertEquals(10.5f, sneakerService.getInventory().get(1).getSize());
+        Assertions.assertEquals(10, sneakerService.getInventory().get(1).getQty());
+        Assertions.assertEquals(80.00f, sneakerService.getInventory().get(1).getPrice());
     }
 
     @Test
     public void findSneakerTest(){
-        Sneaker foundSneaker = null;
-        testInventory.add(testSneaker);
-        for (int i = 0; i < testInventory.size(); i++){
-            if (testInventory.get(i).getId() == testSneaker.getId()){
-                foundSneaker = testSneaker;
-            }
-        }
-        Assert.assertEquals(testSneaker,foundSneaker);
+        Assert.assertEquals(testSneaker,sneakerService.findSneaker(1));
     }
 
     @Test
     public void findAllTest(){
-        testInventory.add(testSneaker);
         testInventoryArray = sneakerService.findAll();
-        Assert.assertEquals(testInventoryArray, testInventory.toArray());
+        Sneaker[] expected = new Sneaker[]{testSneaker};
+        Assert.assertEquals(expected, testInventoryArray);
     }
 
     @Test
     public void deleteTest(){
         testInventory.add(testSneaker);
         Assert.assertTrue(sneakerService.delete(testSneaker.getId()));
+    }
+
+    @Test
+    public void printSneaker(){
+        String expected = "Name: Air Gordon, Brand: Nikee, Sport: Sports, Size: 10.5, Qty: 10, Price: $80.00\n";
+        Assert.assertEquals(expected, sneakerService.printSneaker(testSneaker));
     }
 
 }
