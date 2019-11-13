@@ -15,13 +15,12 @@ public class SneakerServiceTest {
 
     @Before
     public void setUp(){
-        // creates a new Sneaker, then adds it to inventory
-        testSneaker = sneakerService.create("Air Gordon", "Nikee",
-                "Sports", 10.5f, 10, 80.00f);
     }
 
     @Test
     public void createTest(){
+        testSneaker = sneakerService.create("Air Gordon", "Nikee",
+                "Sports", 10.5f, 10, 80.00f);
         Assertions.assertEquals(1, sneakerService.getInventory().get(1).getId());
         Assertions.assertEquals("Air Gordon", sneakerService.getInventory().get(1).getName());
         Assertions.assertEquals("Nikee", sneakerService.getInventory().get(1).getBrand());
@@ -33,11 +32,15 @@ public class SneakerServiceTest {
 
     @Test
     public void findSneakerTest(){
+        testSneaker = sneakerService.create("Air Gordon", "Nikee",
+                "Sports", 10.5f, 10, 80.00f);
         Assert.assertEquals(testSneaker,sneakerService.findSneaker(1));
     }
 
     @Test
     public void findAllTest(){
+        testSneaker = sneakerService.create("Air Gordon", "Nikee",
+                "Sports", 10.5f, 10, 80.00f);
         testInventoryArray = sneakerService.findAll();
         Sneaker[] expected = new Sneaker[]{testSneaker};
         Assert.assertEquals(expected, testInventoryArray);
@@ -45,12 +48,15 @@ public class SneakerServiceTest {
 
     @Test
     public void deleteTest(){
-        testInventory.add(testSneaker);
-        Assert.assertTrue(sneakerService.delete(testSneaker.getId()));
+        testSneaker = sneakerService.create("Air Gordon", "Nikee",
+                "Sports", 10.5f, 10, 80.00f);
+        Assert.assertTrue(sneakerService.delete(1));
     }
 
     @Test
     public void printSneaker(){
+        testSneaker = sneakerService.create("Air Gordon", "Nikee",
+                "Sports", 10.5f, 10, 80.00f);
         String expected = "Name: Air Gordon, Brand: Nikee, Sport: Sports, Size: 10.5, Qty: 10, Price: $80.00\n";
         Assert.assertEquals(expected, sneakerService.printSneaker(testSneaker));
     }
