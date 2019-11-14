@@ -14,6 +14,7 @@ public class NewProductMenu extends MainMenu{
     private float size;
     private int quantity;
     private float price;
+    private SneakerService sneakerService = new SneakerService();
 
 
     public void displayMenu(){
@@ -37,7 +38,7 @@ public class NewProductMenu extends MainMenu{
             size = Float.valueOf(Console.getInput("What size is this sneaker?"));
             quantity = Integer.valueOf(Console.getInput("How many sneakers are in stock?"));
             price = Float.valueOf(Console.getInput("What is the price for your sneaker? (numbers only, no $ sign)"));
-            new SneakerService().create(name, brand, sport, size, quantity, price);
+            sneakerService.create(name, brand, sport, size, quantity, price);
             displayMenu();
         }
         else if (input == 2) {
