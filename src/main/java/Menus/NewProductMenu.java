@@ -1,8 +1,8 @@
 package Menus;
 
 import io.Console;
-import services.SneakerService;
-import services.WhiskeyService;
+import Sneakers.SneakerService;
+import Whiskey.WhiskeyService;
 
 import java.util.ArrayList;
 

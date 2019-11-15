@@ -1,5 +1,6 @@
-package models;
+package Sneakers;
 
+import Whiskey.Whiskey;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

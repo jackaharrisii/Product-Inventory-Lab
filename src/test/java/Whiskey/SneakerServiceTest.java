@@ -1,6 +1,7 @@
-package services;
+package Whiskey;
 
-import models.Sneaker;
+import Sneakers.Sneaker;
+import Sneakers.SneakerService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

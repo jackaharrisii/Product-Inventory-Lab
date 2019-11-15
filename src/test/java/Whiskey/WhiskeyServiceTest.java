@@ -1,6 +1,6 @@
-package services;
+package Whiskey;
 
-import models.Whiskey;
+import Whiskey;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

@@ -35,7 +35,7 @@ public class MainMenu {
 
     public void handleChoice(int input) {
         if (input == 1) { new NewProductMenu().displayMenu(); }
-        else if (input == 2) {new ExistingProductMenu().displayMenu();}
+        else if (input == 2) {new ExistingProductMenu(sneakerService, whiskeyService).displayMenu();}
         else if (input == 3) {new ReportsMenu().displayMenu();}
     }
 }

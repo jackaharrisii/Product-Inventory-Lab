@@ -1,4 +1,4 @@
-package models;
+package Sneakers;
 
 public class Sneaker {
     private int id;

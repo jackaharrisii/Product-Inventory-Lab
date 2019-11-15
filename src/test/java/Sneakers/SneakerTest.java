@@ -1,9 +1,8 @@
-package models;
+package Sneakers;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeAll;
 
 public class SneakerTest {
 

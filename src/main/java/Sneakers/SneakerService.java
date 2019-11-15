@@ -1,12 +1,12 @@
-package services;
+package Sneakers;
 
-import models.Sneaker;
+import Sneakers.Sneaker;
 
 import java.util.HashMap;
 
 public class SneakerService {
 
-    private int id = 0;
+    private int nextId = 0;
     private String name;
     private String brand;
     private String sport;
@@ -18,18 +18,17 @@ public class SneakerService {
 
     // method to accept arguments and return a new instance of a Sneaker object
     public Sneaker create(String name, String brand, String sport, float size, int quantity, float price) {
-        id++;
+        nextId++;
         // create a new sneaker, passing the values from above into the constructor
-        Sneaker createdSneaker = new Sneaker(id, name, brand, sport, size, quantity, price);
+        Sneaker createdSneaker = new Sneaker(nextId, name, brand, sport, size, quantity, price);
         // adds the new sneaker to the HashMap to be managed
-        inventory.put(createdSneaker.getId(), createdSneaker);
+        ServicesManager().getinstance.put(createdSneaker.getId(), createdSneaker);
         // returns the newly created object to the caller
-        return inventory.get(id);
+        return inventory.get(nextId);
     }
 
     //read
     public Sneaker findSneaker(int id) {
-        this.id = id;
         // should take an int and return an object with that id, if exists
         return inventory.get(id);
     }

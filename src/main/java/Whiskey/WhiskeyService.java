@@ -1,6 +1,6 @@
-package services;
+package Whiskey;
 
-import models.Whiskey;
+import Whiskey;
 
 import java.util.HashMap;
 

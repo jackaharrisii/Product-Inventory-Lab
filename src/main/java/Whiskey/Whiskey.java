@@ -1,4 +1,4 @@
-package models;
+package Whiskey;
 
 public class Whiskey {
     private int id;

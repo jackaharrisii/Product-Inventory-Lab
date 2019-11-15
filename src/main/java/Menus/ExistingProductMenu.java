@@ -1,8 +1,8 @@
 package Menus;
 
 import io.Console;
-import services.SneakerService;
-import services.WhiskeyService;
+import Sneakers.SneakerService;
+import Whiskey.WhiskeyService;
 
 import java.util.ArrayList;
 
@@ -15,6 +15,12 @@ public class ExistingProductMenu extends MainMenu{
     private int quantity;
     private float price;
     private int id;
+
+    public ExistingProductMenu(SneakerService sneakerService, WhiskeyService whiskeyService) {
+        this.sneakerService = sneakerService;
+        this.whiskeyService = whiskeyService;
+    }
+
     SneakerService sneakerService = new SneakerService();
     WhiskeyService whiskeyService = new WhiskeyService();
 
