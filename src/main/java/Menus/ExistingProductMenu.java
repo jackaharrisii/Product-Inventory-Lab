@@ -1,5 +1,6 @@
 package Menus;
 
+import Sneakers.Sneaker;
 import io.Console;
 import Sneakers.SneakerService;
 import Whiskey.WhiskeyService;
@@ -21,8 +22,8 @@ public class ExistingProductMenu extends MainMenu{
         this.whiskeyService = whiskeyService;
     }
 
-    SneakerService sneakerService = new SneakerService();
-    WhiskeyService whiskeyService = new WhiskeyService();
+//    SneakerService sneakerService = new SneakerService();
+//    WhiskeyService whiskeyService = new WhiskeyService();
 
 
     public void displayMenu(){
@@ -37,6 +38,8 @@ public class ExistingProductMenu extends MainMenu{
         choices.add("Edit an existing Whiskey");
         choices.add("Remove an existing Sneaker from Inventory");
         choices.add("Remove an existing Whiskey from Inventory");
+        choices.add("Print a report of all sneakers");
+        choices.add("Print a report of all whiskey");
         choices.add("Return to the Main Menu");
 
         handleChoice(Console.getInput(header, choices.toArray(new String[choices.size()])));
@@ -72,6 +75,19 @@ public class ExistingProductMenu extends MainMenu{
             id = Integer.valueOf(Console.getInput("Input ID for whiskey to remove from inventory:"));
             Console.print("The following whiskey is being removed from our inventory:\n" + whiskeyService.findWhiskey(id).toString());
             whiskeyService.delete(id);
+            displayMenu();
+        }
+        else if (input == 7) {
+            Sneaker[] sneakerInventory = sneakerService.findAll();
+            for (int i = 0; i < sneakerInventory.length; i++){
+                Console.print(sneakerService.printSneaker(sneakerService.findSneaker(i)));
+            }
+            Console.getInput("\nPress Return to return to the Reports Menu");
+            displayMenu();
+        }
+        else if (input == 8) {
+            Console.print(whiskeyService.findAll().toString());
+            Console.getInput("\nPress Return to return to the Reports Menu");
             displayMenu();
         }
         else {new MainMenu().displayMenu();}

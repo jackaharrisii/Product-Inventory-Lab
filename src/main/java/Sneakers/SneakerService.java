@@ -1,7 +1,5 @@
 package Sneakers;
 
-import Sneakers.Sneaker;
-
 import java.util.HashMap;
 
 public class SneakerService {
@@ -14,6 +12,8 @@ public class SneakerService {
     private int quantity;
     private float price;
 
+//    private static final ServicesManager servicesManager = ServicesManager.getInstance();
+
     private HashMap<Integer, Sneaker> inventory = new HashMap<>();
 
     // method to accept arguments and return a new instance of a Sneaker object
@@ -22,7 +22,7 @@ public class SneakerService {
         // create a new sneaker, passing the values from above into the constructor
         Sneaker createdSneaker = new Sneaker(nextId, name, brand, sport, size, quantity, price);
         // adds the new sneaker to the HashMap to be managed
-        ServicesManager().getinstance.put(createdSneaker.getId(), createdSneaker);
+        inventory.put(nextId, createdSneaker);
         // returns the newly created object to the caller
         return inventory.get(nextId);
     }

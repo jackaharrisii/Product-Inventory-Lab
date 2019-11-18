@@ -3,9 +3,9 @@ import Whiskey.Whiskey;
 
 import java.util.HashMap;
 
-public class ServicesManager {
+public final class ServicesManager {
 
-    public static final ServicesManager instance = new ServicesManager();
+    public static final ServicesManager INSTANCE = new ServicesManager();
 
     public HashMap<Integer, Sneaker> sneakerInventory;
     public HashMap<Integer, Whiskey> whiskeyInventory;
@@ -15,7 +15,7 @@ public class ServicesManager {
         this.whiskeyInventory = new HashMap<>();
     }
 
-    public static ServicesManager getInstance() { return instance; }
+    public static ServicesManager getInstance() { return INSTANCE; }
 
 
 

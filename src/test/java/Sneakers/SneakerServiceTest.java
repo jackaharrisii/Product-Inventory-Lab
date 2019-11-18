@@ -1,4 +1,4 @@
-package Whiskey;
+package Sneakers;
 
 import Sneakers.Sneaker;
 import Sneakers.SneakerService;

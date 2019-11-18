@@ -1,4 +1,4 @@
-package Sneakers;
+package Whiskey;
 
 import Whiskey.Whiskey;
 import org.junit.Assert;

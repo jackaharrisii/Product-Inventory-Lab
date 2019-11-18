@@ -1,7 +1,5 @@
 package Whiskey;
 
-import Whiskey;
-
 import java.util.HashMap;
 
 public class WhiskeyService{
